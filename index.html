@@ -10,25 +10,26 @@
   <body>
     <div id="react-container"></div>
     <script type="text/babel">
-        var MyComponent = React.createClass({
-            render() {
-                return <div>
-                    <h1>{this.props.text}</h1>
-                    <p>{this.props.children}</p>
-                </div>
+        var Note = React.createClass({
+            edit(){
+              alert("Editing note!")
+            },
+            remove(){
+                alert("removing note!")
+            },
+            render(){
+                return(
+                        <div className="note">
+                            <p>{this.props.children}</p>
+                            <span>
+                                <button onClick={this.edit}>EDIT</button>
+                                <button onClick={this.remove}>X</button>
+                            </span>
+                        </div>
+                )
             }
         });
-
-        ReactDOM.render(<div>
-                    <MyComponent text="hello react">
-                        child text
-                    </MyComponent>
-                <MyComponent text="hello reused"/>
-                <MyComponent text="hello reused again"/>
-                <MyComponent text="hello reused 4th time"/>
-                </div>,
-        document.getElementById('react-container'));
-
+        ReactDOM.render(<Note>Herro world</Note>, document.getElementById('react-container'));
     </script>
   </body>
 </html>
