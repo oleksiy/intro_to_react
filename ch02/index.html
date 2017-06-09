@@ -4,17 +4,23 @@
       <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
       <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
-      <title>My First React File</title>
+      <title>React Component</title>
   </head>
   <body>
     <div id="react-container"></div>
     <script type="text/babel">
-        ReactDOM.render(<ul>
-                <li>item 1</li>
-                <li>item 2</li>
-                <li>item 3</li>
-            </ul>,
-            document.getElementById('react-container'));
+        var MyComponent = React.createClass({
+            render(){
+                return <div>
+                    <h1>Hello REact</h1>
+                    <p>first react component</p>
+                </div>
+            }
+        });
+
+        ReactDOM.render(<MyComponent />,
+        document.getElementById('react-container'));
+
     </script>
   </body>
 </html>
