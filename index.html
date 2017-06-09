@@ -18,6 +18,8 @@
                 this.setState({editing:true});
             },
             save(){
+                var text = this.refs.newText.value;
+                alert("We are saving your input: " + text);
                 this.setState({editing:false});
             },
             remove(){
@@ -26,7 +28,7 @@
             renderForm(){
                 return(
                         <div className="note">
-                            <textarea></textarea>
+                            <textarea ref="newText"></textarea>
                             <button onClick={this.save}>SAVE</button>
                         </div>
                 );
@@ -51,6 +53,26 @@
                 }*/
             }
         });
+
+
+        var Board = React.createClass({
+            propTypes: {
+                count: function(props, propName) {
+                    if(typeof props[propName] !== "number") {
+                        return new Error("the count must be a number")
+                    }
+
+                    if(props[propName] > 100) {
+                        return new Error('Creating ' + props[propName] + ' notes is ridiculous')
+                    }
+                }
+            },
+            render() {
+                return (<div className='board'>
+                    {this.props.count}
+                </div>)
+            }
+        })
 
         /**
          * checkbox example
@@ -81,7 +103,8 @@
                 );
             }
         });
-        ReactDOM.render(<Note>Herro world</Note>, document.getElementById('react-container'));
+        ReactDOM.render(<Board count={5000}/>,
+            document.getElementById('react-container'));
         //ReactDOM.render(<Checkbox/>, document.getElementById('react-container'));
     </script>
   </body>
