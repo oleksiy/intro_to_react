@@ -9,15 +9,23 @@
   <body>
     <div id="react-container"></div>
     <script type="text/babel">
-        const MyComponent = () => {
-
+        var MyComponent = React.createClass({
+            render() {
                 return <div>
-                    <h1>Hello React</h1>
-                    <p>first react component</p>
+                    <h1>{this.props.text}</h1>
+                    <p>{this.props.children}</p>
                 </div>
-        }
+            }
+        });
 
-        ReactDOM.render(<MyComponent />,
+        ReactDOM.render(<div>
+                    <MyComponent text="hello react">
+                        child text
+                    </MyComponent>
+                <MyComponent text="hello reused"/>
+                <MyComponent text="hello reused again"/>
+                <MyComponent text="hello reused 4th time"/>
+                </div>,
         document.getElementById('react-container'));
 
     </script>
