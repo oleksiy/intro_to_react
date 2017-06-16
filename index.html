@@ -22,7 +22,7 @@
                 this.setState({editing: false});
             },
             remove(){
-                alert("removing note!")
+                this.props.onRemove(this.props.id);
             },
             renderForm(){
                 return(
