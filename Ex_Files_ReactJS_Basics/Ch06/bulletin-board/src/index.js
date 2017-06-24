@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
+import Board from './Board';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Board count={50}/>,
+    document.getElementById('react-container')
+);
 registerServiceWorker();
