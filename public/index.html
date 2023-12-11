@@ -25,9 +25,13 @@
         }
 
         function HomePage() {
+            {/*First param is value of the state, second is the function to update that value.
+            You can also set an initial value in useState*/}
+            const [likes, setLikes] = React.useState(0);
             const offices = ['Baltimore', 'New York', 'Dulles', 'San Jose'];
             function handleClick() {
                 console.log("Like button clicked.");
+                setLikes(likes + 1);
             }
             return(<div>
                 {/* if you don't pass anything it will render default text*/}
@@ -38,7 +42,7 @@
                         <li key={name}>{name}</li>
                     ))}
                 </ul>
-                <button onClick={handleClick}>Like</button>
+                <button onClick={handleClick}>Like({likes})</button>
             </div>);
         }
 
