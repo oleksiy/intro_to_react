@@ -26,6 +26,9 @@
 
         function HomePage() {
             const offices = ['Baltimore', 'New York', 'Dulles', 'San Jose'];
+            function handleClick() {
+                console.log("Like button clicked.");
+            }
             return(<div>
                 {/* if you don't pass anything it will render default text*/}
                 <Header text={"Configurable header component with props"}/>
@@ -35,7 +38,7 @@
                         <li key={name}>{name}</li>
                     ))}
                 </ul>
-                <button onClick={()=>console.log("shit")}>Like</button>
+                <button onClick={handleClick}>Like</button>
             </div>);
         }
 
