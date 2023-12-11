@@ -1,6 +1,8 @@
+// @ts-ignore
 import React from "react";
 
 export default function Home() {
+
     function handleClick() {
         console.log('Click event happened.');
     }
