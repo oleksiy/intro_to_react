@@ -1,7 +1,4 @@
-import Image from 'next/image'
 import React from "react";
-import {string} from "prop-types";
-import dynamic from "next/dynamic";
 
 export default function Home() {
     function handleClick() {
@@ -12,17 +9,23 @@ export default function Home() {
     return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <Header />
-        <Button content = "Crappy Button"/>
+        <Button buttonText = "Crappy Button" onClick={handleClick}></Button>
         <ListOfOffices names = {offices}/>
 
     </main>
   )
 }
 
-function Button(props: { content: string }) {
+interface ButtonProps {
+    buttonText: string;
+    onClick: () => void;
+}
+
+// @ts-ignore
+function Button({ buttonText, onClick }: ButtonProps) {
     return(
         <>
-            <button>{props.content}</button>
+            <button onClick={onClick}>{buttonText}</button>
         </>
     )
 }
