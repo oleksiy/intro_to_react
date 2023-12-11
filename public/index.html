@@ -25,10 +25,17 @@
         }
 
         function HomePage() {
+            const offices = ['Baltimore', 'New York', 'Dulles', 'San Jose'];
             return(<div>
-                <!-- passing no props renders default text -->
+                {/* if you don't pass anything it will render default text*/}
                 <Header text={"Configurable header component with props"}/>
                 <p> Contained within the homepage parent component </p>
+                <ul>
+                    {offices.map((name) => (
+                        <li key={name}>{name}</li>
+                    ))}
+                </ul>
+                <button onClick={()=>console.log("shit")}>Like</button>
             </div>);
         }
 
