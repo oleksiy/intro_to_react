@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test App - Standalone</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- everything is rendered by react here -->
+    </div>
+    <script type="text/jsx">
+        const app = document.getElementById('app');
+        function Header({text}) {
+            return(<h1> {text} </h1>);
+        }
+
+        function HomePage() {
+            return(<div>
+                <Header text={"Configurable header component with props"}/>
+                <p> Contained within the homepage parent component </p>
+            </div>);
+        }
+
+        ReactDOM.render(<HomePage/>, app);
+    </script>
+</body>
+</html>
