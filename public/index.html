@@ -13,12 +13,20 @@
     </div>
     <script type="text/jsx">
         const app = document.getElementById('app');
+        function setHeaderText(text) {
+            if(text) {
+                return text;
+            } else {
+                return "Default Header Text";
+            }
+        }
         function Header({text}) {
-            return(<h1> {text} </h1>);
+            return(<h1>{setHeaderText(text)}</h1>);
         }
 
         function HomePage() {
             return(<div>
+                <!-- passing no props renders default text -->
                 <Header text={"Configurable header component with props"}/>
                 <p> Contained within the homepage parent component </p>
             </div>);
